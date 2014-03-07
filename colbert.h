@@ -29,14 +29,14 @@
 unsigned short int colbert_t = 0;
 unsigned short int colbert_f = 0;
 
-#define assert_truthiness(description, expression) do {      \
-  colbert_t++;      printf("%s: ", description);             \
-  if (expression) { printf("\e[32m✔\e[0m\n"); }              \
-  else            { printf("\e[31m✘\e[0m\n"); colbert_f++; } \
+#define assert_truthiness(description, expression) do {           \
+  colbert_t++;      printf("%s: ", description);                  \
+  if (expression) { printf("\e[32m\u2714\e[0m\n"); }              \
+  else            { printf("\e[31m\u2718\e[0m\n"); colbert_f++; } \
 } while(0)
 
 #define the_colbert_report() do {                                     \
-  printf("%d tests, %d \e[32m✔\e[0m, %d \e[31m✘\e[0m\n",              \
+  printf("%d tests, %d \e[32m\u2714\e[0m, %d \e[31m\u2718\e[0m\n",    \
   colbert_t, colbert_t - colbert_f, colbert_f);                       \
   if (colbert_f > 0) { printf("A failure too calamitous to mock.\n"); \
     exit(1); }                                                        \
