@@ -1,6 +1,7 @@
-/**
- * Colbert: a micro-testing framework written in C
- * Copyright © 2013 - 2014 Daniel Morris <https://github.com/unfunco>
+/*
+ * Colbert
+ *
+ * Copyright © 2013 - 2015 Daniel Morris <daniel@honestempire.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
