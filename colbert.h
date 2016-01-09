@@ -1,7 +1,7 @@
 /*
  * Colbert
  *
- * Copyright © 2013 - 2015 Daniel Morris <daniel@honestempire.com>
+ * Copyright © 2013 - 2016 Daniel Morris <daniel@honestempire.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,25 +22,25 @@
  * THE SOFTWARE.
  */
 
-#ifndef COLBERT_H
-#define COLBERT_H
+#pragma once
 
 #include <stdio.h>
+#include <stdint.h>
 
-unsigned short int colbert_t = 0;
-unsigned short int colbert_f = 0;
+uint8_t colbert_tests = 0;
+uint8_t colbert_fails = 0;
 
-#define assert_truthiness(description, expression) do {           \
-  colbert_t++;      printf("%s: ", description);                  \
-  if (expression) { printf("\e[32m\u2714\e[0m\n"); }              \
-  else            { printf("\e[31m\u2718\e[0m\n"); colbert_f++; } \
+#define assert_truthiness(description, expression) do { \
+  colbert_tests++; \
+  printf("%s: ", description); \
+  if (expression) { \
+    printf("\e[32m\u2714\e[0m\n"); \
+  } else { \
+    printf("\e[31m\u2718\e[0m\n"); \
+    colbert_fails++; \
+  } \
 } while(0)
 
-#define the_colbert_report() do {                                     \
-  printf("%d tests, %d \e[32m\u2714\e[0m, %d \e[31m\u2718\e[0m\n",    \
-  colbert_t, colbert_t - colbert_f, colbert_f);                       \
-  if (colbert_f > 0) { printf("A failure too calamitous to mock.\n"); \
-    exit(1); }                                                        \
+#define colbert_report() do { \
+  printf("%d tests, %d \e[32m\u2714\e[0m, %d \e[31m\u2718\e[0m\n", colbert_tests, colbert_tests - colbert_fails, colbert_fails); \
 } while(0)
-
-#endif
