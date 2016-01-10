@@ -36,8 +36,8 @@ uint16_t colbert_fails = 0;
   if (expression) { \
     printf("\e[32m\u2714\e[0m\n"); \
   } else { \
-    printf("\e[31m\u2718\e[0m\n"); \
     colbert_fails++; \
+    printf("\e[31m\u2718\e[0m\n"); \
   } \
 } while(0)
 
