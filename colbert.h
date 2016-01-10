@@ -27,8 +27,8 @@
 #include <stdio.h>
 #include <stdint.h>
 
-uint8_t colbert_tests = 0;
-uint8_t colbert_fails = 0;
+uint16_t colbert_tests = 0;
+uint16_t colbert_fails = 0;
 
 #define assert_truthiness(description, expression) do { \
   colbert_tests++; \
